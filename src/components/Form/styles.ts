@@ -63,6 +63,7 @@ export const Input = styled.input`
   @media (max-width: ${breakpoints.mobileLarge}) {
     width: 100%;
     font-size: 2vh;
+    padding-left: 2vw;
   }
 
   @media (min-width: ${breakpoints.desktop}) {
