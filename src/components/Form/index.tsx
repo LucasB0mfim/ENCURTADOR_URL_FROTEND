@@ -20,7 +20,7 @@ const Form = () => {
 
         // Validação da URL
         if (!urlOriginal.startsWith("https://")) {
-            setErrorMessage("A URL deve começar com 'https://'");
+            setErrorMessage("A URL deve começar com https://");
             setIsLoading(false);
             return;
         }
@@ -67,7 +67,19 @@ const Form = () => {
                       {copiedMessage && <p>Copiado!</p>}
                     </>
                 )}
-                {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>}
+                {errorMessage && (
+                  <p
+                    style={{
+                      color: 'white',
+                      background: '#8B0000',
+                      padding: '1vw',
+                      borderRadius: '10px',
+                      border: '2px solid #FF0000'
+                    }}
+                  >
+                    {errorMessage}
+                  </p>
+                )}
             </S.FormBar>
         </S.Container>
     );
