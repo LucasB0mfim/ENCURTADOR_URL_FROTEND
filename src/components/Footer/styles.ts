@@ -9,7 +9,7 @@ export const FooterBar = styled.footer`
 
   p {
     padding: 10px;
-    color: ${colors.blackLight};
+    color: ${colors.white};
     display: flex;
     font-size: 12px;
     justify-content: center;

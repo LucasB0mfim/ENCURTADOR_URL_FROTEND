@@ -7,9 +7,22 @@ export const Container = styled.div`
   justify-content: center;
 
   position: absolute;
-  top: 25vw;
+  top: 10vw;
+
+
+  @media (max-width: ${breakpoints.mobileLarge}) {
+    top: 25vw;
+  }
+
+  @media (min-width: ${breakpoints.tablet}) {
+    top: 11vw;
+  }
+
+  @media (min-width: ${breakpoints.desktop}) {
+    top: 11.5vw;
+  }
 
   @media (min-width: ${breakpoints.fullHd}) {
-    top: 11vw;
+    top: 11.5vw;
   }
 `

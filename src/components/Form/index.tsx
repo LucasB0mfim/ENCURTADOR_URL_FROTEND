@@ -2,14 +2,12 @@ import React, { useState } from 'react';
 import { encurtarURL } from '../../services/api';
 import * as S from './styles';
 import send from '../../assets/images/send.png';
-import copy from '../../assets/images/copy.png';
 import Loader from '../Loader';
 
 const Form: React.FC = () => {
     const [urlOriginal, setUrlOriginal] = useState('');
     const [urlCurta, setUrlCurta] = useState('');
     const [isLoading, setIsLoading] = useState(false);
-    const [copyButtonActive, setCopyButtonActive] = useState(false);
     const [copiedMessage, setCopiedMessage] = useState(false);
 
     const handleSubmit = async (event: React.FormEvent) => {
@@ -30,7 +28,6 @@ const Form: React.FC = () => {
     const handleCopy = () => {
         navigator.clipboard.writeText(`https://encurtador-url-dfhs.onrender.com/api/${urlCurta}`)
             .then(() => {
-                setCopyButtonActive(true); // Ativa a cor de fundo ao copiar
                 setCopiedMessage(true); // Exibe a mensagem "Copiado!"
             })
             .catch(err => {
@@ -52,15 +49,13 @@ const Form: React.FC = () => {
                 </S.SendButton>
                 {isLoading && <Loader />}
                 {!isLoading && urlCurta && (
-                    <S.DivCopy>
-                        <S.CopyButton
-                            onClick={handleCopy}
-                            active={copyButtonActive}
-                        >
-                            <img src={copy} alt="Copiar" />
-                        </S.CopyButton>
-                        {copiedMessage && <p>Copiado!</p>}
-                    </S.DivCopy>
+                    <>
+                      <Loader />
+                      <S.DivCopy>
+                          <S.CopyButton onClick={handleCopy}>Copiar link</S.CopyButton>
+                      </S.DivCopy>
+                      {copiedMessage && <p>Copiado!</p>}
+                    </>
                 )}
             </S.FormBar>
         </S.Container>

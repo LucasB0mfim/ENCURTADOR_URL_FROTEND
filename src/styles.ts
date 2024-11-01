@@ -2,13 +2,18 @@ import styled, { createGlobalStyle } from "styled-components";
 
 export const colors = {
   white: '#fff',
-  black: '#181818',
+  black: '#001e2b',
   blackLight: '#3d3d3d',
-  green: '#649a6f'
+  green: '#00ed64',
+  greenDark: '#00684a'
 }
 
 export const breakpoints = {
-  fullHd: '1360px'
+  mobileSmall: '480px',
+  mobileLarge: '700px',
+  tablet: '1024px',
+  desktop: '1440px',
+  fullHd: '1920px'
 }
 
 const GlobalStyle = createGlobalStyle`
@@ -20,7 +25,6 @@ const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    color: ${colors.white};
     background: ${colors.black};
   }
 `
